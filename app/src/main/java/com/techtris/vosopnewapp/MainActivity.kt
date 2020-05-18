@@ -101,6 +101,8 @@ class MainActivity : AppCompatActivity() {
 
                 } else {
                     binding.apply {
+                        selectedImage.isGone = true
+                        selectedVideo.isGone = true
                         emptyState.isVisible = true
                         upload.isVisible = true
                         shareWithAndroid.isGone = true
@@ -110,6 +112,8 @@ class MainActivity : AppCompatActivity() {
             }
             else -> {
                 binding.apply {
+                    selectedImage.isGone = true
+                    selectedVideo.isGone = true
                     emptyState.isVisible = true
                     upload.isVisible = true
                     shareWithAndroid.isGone = true
