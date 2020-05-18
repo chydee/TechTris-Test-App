@@ -3,6 +3,9 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/53c257b48c914331bea48553c9f3462d)](https://app.codacy.com/manual/chydee/TechTris-Test-App?utm_source=github.com&utm_medium=referral&utm_content=chydee/TechTris-Test-App&utm_campaign=Badge_Grade_Dashboard)
 
  - A simple feature test app.
+ <img src="https://github.com/chydee/TechTris-Test-App/blob/master/screens.png" />
+ 
+ - Test APK: https://github.com/chydee/TechTris-Test-App/releases/tag/1.0
 
 ## INSTRUCTIONS:
  
