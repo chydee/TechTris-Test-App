@@ -4,6 +4,8 @@
 
  - A simple feature test app.
  <img src="https://github.com/chydee/TechTris-Test-App/blob/master/screens.png" />
+ 
+ - Test APK: https://github.com/chydee/TechTris-Test-App/releases/tag/1.0
 
 ## INSTRUCTIONS:
  
