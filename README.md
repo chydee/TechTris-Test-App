@@ -2,7 +2,7 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/53c257b48c914331bea48553c9f3462d)](https://app.codacy.com/manual/chydee/TechTris-Test-App?utm_source=github.com&utm_medium=referral&utm_content=chydee/TechTris-Test-App&utm_campaign=Badge_Grade_Dashboard)
 
- - A simple two functional feature app. 
+ - A simple feature test app.
 
 ## INSTRUCTIONS:
  
