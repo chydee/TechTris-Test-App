@@ -50,14 +50,23 @@ class MainActivity : AppCompatActivity() {
             .setVideoDurationLimitinSeconds(60)
             .setScreenOrientation(Options.SCREEN_ORIENTATION_PORTRAIT)
             .setPath("/techtris/new")
-        binding.upload.setOnClickListener {
-            options?.preSelectedUrls = returnValue
-            Pix.start(this@MainActivity, options)
-        }
-
         val mediaController = MediaController(applicationContext)
-        binding.selectedVideo.setMediaController(mediaController)
         mediaController.setAnchorView(binding.selectedVideo)
+        binding.apply {
+            upload.setOnClickListener {
+                options?.preSelectedUrls = returnValue
+                Pix.start(this@MainActivity, options)
+            }
+            selectedImage.setOnClickListener {
+                options?.preSelectedUrls = returnValue
+                Pix.start(this@MainActivity, options)
+            }
+            selectedVideo.setOnClickListener {
+                options?.preSelectedUrls = returnValue
+                Pix.start(this@MainActivity, options)
+            }
+            selectedVideo.setMediaController(mediaController)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
