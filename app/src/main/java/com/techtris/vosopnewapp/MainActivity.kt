@@ -64,12 +64,7 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
             100 -> {
-                binding.apply {
-                    upload.isGone = true
-                    emptyState.isGone = true
-                    shareWithAndroid.isVisible = true
-                    shareWithFacebook.isVisible = true
-                }
+                viewsState()
                 if (resultCode == Activity.RESULT_OK) {
                     returnValue = data?.getStringArrayListExtra(Pix.IMAGE_RESULTS)!!
                     val f = File(returnValue[0])
@@ -84,8 +79,14 @@ class MainActivity : AppCompatActivity() {
                             selectedImage.isGone = true
                             selectedVideo.isVisible = true
                             selectedVideo.setVideoURI(videoUri)
-                            shareWithAndroid.setOnClickListener { shareVideo(videoUri) }
-                            shareWithFacebook.setOnClickListener { shareVideoWithFaceBook(uri = videoUri) }
+                            shareWithAndroid.setOnClickListener {
+                                shareVideo(videoUri)
+                            }
+                            shareWithFacebook.setOnClickListener {
+                                shareWithFacebook.isEnabled = false
+                                shareWithFacebook.text = getString(R.string.loading)
+                                shareVideoWithFaceBook(uri = videoUri)
+                            }
                         }
                     } else {
                         bitmap = BitmapDrawable(applicationContext.resources, f.absolutePath).bitmap
@@ -95,31 +96,43 @@ class MainActivity : AppCompatActivity() {
                             shareWithAndroid.setOnClickListener {
                                 shareImage(f.absoluteFile)
                             }
-                            shareWithFacebook.setOnClickListener { shareImageWithFacebook(bitmap) }
+                            shareWithFacebook.setOnClickListener {
+                                shareWithFacebook.isEnabled = false
+                                shareWithFacebook.text = getString(R.string.loading)
+                                shareImageWithFacebook(bitmap)
+                            }
                         }
                     }
 
                 } else {
-                    binding.apply {
-                        selectedImage.isGone = true
-                        selectedVideo.isGone = true
-                        emptyState.isVisible = true
-                        upload.isVisible = true
-                        shareWithAndroid.isGone = true
-                        shareWithFacebook.isGone = true
-                    }
+                    resetState()
                 }
             }
             else -> {
-                binding.apply {
-                    selectedImage.isGone = true
-                    selectedVideo.isGone = true
-                    emptyState.isVisible = true
-                    upload.isVisible = true
-                    shareWithAndroid.isGone = true
-                    shareWithFacebook.isGone = true
-                }
+                resetState()
             }
+        }
+    }
+
+    private fun resetState() {
+        binding.apply {
+            selectedImage.isGone = true
+            selectedVideo.isGone = true
+            emptyState.isVisible = true
+            upload.isVisible = true
+            shareWithAndroid.isGone = true
+            shareWithFacebook.isGone = true
+        }
+    }
+
+    private fun viewsState() {
+        binding.apply {
+            upload.isGone = true
+            emptyState.isGone = true
+            shareWithFacebook.isEnabled = true
+            shareWithFacebook.text = getString(R.string.share_with_facebook)
+            shareWithAndroid.isVisible = true
+            shareWithFacebook.isVisible = true
         }
     }
 

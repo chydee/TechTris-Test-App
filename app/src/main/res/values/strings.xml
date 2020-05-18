@@ -6,4 +6,5 @@
     <string name="upload_media">Upload Media</string>
     <string name="share_media">Share Media</string>
     <string name="share_with_facebook">Share With Facebook</string>
+    <string name="loading">Please wait...</string>
 </resources>
