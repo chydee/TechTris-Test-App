@@ -8,6 +8,33 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
+        <LinearLayout
+            android:id="@+id/empty_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/upload"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <View
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/ic_undraw_video_upload" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/action"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+        </LinearLayout>
+
         <ImageView
             android:id="@+id/selected_image"
             android:layout_width="match_parent"
@@ -39,9 +66,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="50dp"
             android:background="@android:color/transparent"
-            android:text="Upload Media"
-            android:visibility="visible"
+            android:text="@string/upload_media"
             android:textColor="@color/colorPrimary"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
@@ -52,7 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="50dp"
             android:background="@android:color/transparent"
-            android:text="Share Media"
+            android:text="@string/share_media"
             android:textColor="@color/colorPrimary"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -65,9 +92,9 @@
             android:id="@+id/share_with_facebook"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:text="Share With Facebook"
             android:layout_marginBottom="24dp"
+            android:background="@android:color/transparent"
+            android:text="@string/share_with_facebook"
             android:textColor="@color/colorPrimary"
             android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/share_with_android"

@@ -49,10 +49,10 @@ class MainActivity : AppCompatActivity() {
             .setExcludeVideos(false)
             .setVideoDurationLimitinSeconds(60)
             .setScreenOrientation(Options.SCREEN_ORIENTATION_PORTRAIT)
-            .setPath("/chydee/new")
+            .setPath("/techtris/new")
         binding.upload.setOnClickListener {
             options?.preSelectedUrls = returnValue
-            Pix.start(this@MainActivity, options);
+            Pix.start(this@MainActivity, options)
         }
 
         val mediaController = MediaController(applicationContext)
@@ -66,6 +66,7 @@ class MainActivity : AppCompatActivity() {
             100 -> {
                 binding.apply {
                     upload.isGone = true
+                    emptyState.isGone = true
                     shareWithAndroid.isVisible = true
                     shareWithFacebook.isVisible = true
                 }
@@ -74,7 +75,6 @@ class MainActivity : AppCompatActivity() {
                     val f = File(returnValue[0])
                     val bitmap: Bitmap
                     if (f.absolutePath.endsWith("mp4")) {
-                        bitmap = BitmapDrawable(applicationContext.resources, f.absolutePath).bitmap
                         val videoUri = FileProvider.getUriForFile(
                             this@MainActivity,
                             applicationContext.packageName + ".fileProvider",
@@ -99,6 +99,21 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
 
+                } else {
+                    binding.apply {
+                        emptyState.isVisible = true
+                        upload.isVisible = true
+                        shareWithAndroid.isGone = true
+                        shareWithFacebook.isGone = true
+                    }
+                }
+            }
+            else -> {
+                binding.apply {
+                    emptyState.isVisible = true
+                    upload.isVisible = true
+                    shareWithAndroid.isGone = true
+                    shareWithFacebook.isGone = true
                 }
             }
         }
@@ -107,7 +122,7 @@ class MainActivity : AppCompatActivity() {
     private fun shareImageWithFacebook(bitmap: Bitmap) {
         val photo: SharePhoto = SharePhoto.Builder()
             .setBitmap(bitmap)
-            .build();
+            .build()
         val content: SharePhotoContent = SharePhotoContent.Builder()
             .addPhoto(photo)
             .build()
@@ -117,10 +132,10 @@ class MainActivity : AppCompatActivity() {
     private fun shareVideoWithFaceBook(uri: Uri) {
         val vid: ShareVideo = ShareVideo.Builder()
             .setLocalUrl(uri)
-            .build();
+            .build()
         val content = ShareVideoContent.Builder()
             .setVideo(vid)
-            .build();
+            .build()
         shareDialog.show(content)
     }
 

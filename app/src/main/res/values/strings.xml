@@ -2,4 +2,8 @@
     <string name="app_name">VOSOP new app</string>
     <string name="send_to">Share image using</string>
     <string name="app_id">536321000377791</string>
+    <string name="action">Upload Video or Pictures</string>
+    <string name="upload_media">Upload Media</string>
+    <string name="share_media">Share Media</string>
+    <string name="share_with_facebook">Share With Facebook</string>
 </resources>
