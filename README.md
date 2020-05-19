@@ -7,7 +7,7 @@
    Can record videos in bits and also pick from local storage
  <img src="https://github.com/chydee/TechTris-Test-App/blob/master/screens.png" />
  
- - Test APK: https://github.com/chydee/TechTris-Test-App/releases/tag/1.0
+ - Test APK: https://github.com/chydee/TechTris-Test-App/releases/tag/v2.0
 
 ## INSTRUCTIONS:
  
